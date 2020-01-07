@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId "com.tistory.blackjin.mytestapplicaion"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -21,9 +21,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    dataBinding {
-        enabled = true
-    }
 }
 
 dependencies {
@@ -32,13 +29,6 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-
-    def lifecycleVersion = '2.1.0'
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
-
-    def archTestingVersion = '2.0.0'
-    testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
-    //androidTestImplementation "androidx.arch.core:core-testing:$archTestingVersion"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
