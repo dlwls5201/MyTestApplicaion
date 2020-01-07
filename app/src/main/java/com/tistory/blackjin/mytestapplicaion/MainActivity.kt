@@ -1,26 +1,28 @@
 package com.tistory.blackjin.mytestapplicaion
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProviders
-import com.tistory.blackjin.mytestapplicaion.databinding.ActivityMainBinding
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import java.text.SimpleDateFormat
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: GameViewModel
+    private var number = 0
+
+    private val gameController = GameController()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        setContentView(R.layout.activity_main)
 
-        viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
-        binding.lifecycleOwner = this
-        binding.gameViewModel = viewModel
+        button.setOnClickListener {
+            number++
+            tvNumber.text = "$number"
+
+            if (gameController.contains369(number)) {
+                tvClap.text = resources.getString(R.string.clap_text)
+            } else {
+                tvClap.text = ""
+            }
+        }
     }
-
 }
