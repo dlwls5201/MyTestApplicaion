@@ -7,7 +7,7 @@ class GameViewModel : ViewModel() {
     private val gameController = GameController()
 
     val number = MutableLiveData(0)
-    val contains = MutableLiveData<Boolean>(false)
+    val contains = MutableLiveData(false)
 
     fun increaseNumber() {
         number.value = number.value!!.plus(1)
